@@ -3,8 +3,8 @@ int relayPin = 13;
 
 int sensorValue = 0;
 int second = 1000;
-int delayValue = second * 10;
-int loopsBeforeInitialState = 6 * 3;
+int delayValue = second;
+int loopsBeforeInitialState = 10;
 int loopsCurrent = 0;
 
 void setup() {
@@ -21,6 +21,8 @@ void loop() {
     if (loopsCurrent > loopsBeforeInitialState) {
       digitalWrite(relayPin, HIGH);
       loopsCurrent = 0;
+    } else {
+      loopsCurrent++;
     }
   }
   Serial.print("loopsCurrent: ");
